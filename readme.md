@@ -1,14 +1,15 @@
-# Cashify 💸
+# Cashify-es2017 💸
 
 > Lightweight currency conversion library, successor of money.js
 
-[![Build Status](https://github.com/xxczaki/cashify/workflows/CI/badge.svg)](https://github.com/xxczaki/cashify/actions?query=workflow%3ACI)
-[![Coverage Status](https://coveralls.io/repos/github/xxczaki/cashify/badge.svg?branch=master)](https://coveralls.io/github/xxczaki/cashify?branch=master)
+[![Build Status](https://github.com/d2xdt2/cashify-es2017/workflows/CI/badge.svg)](https://github.com/d2xdt2/cashify-es2017/actions?query=workflow%3ACI)
+[![Coverage Status](https://coveralls.io/repos/github/d2xdt2/cashify-es2017/badge.svg?branch=master)](https://coveralls.io/github/d2xdt2/cashify-es2017?branch=master)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
-[![install size](https://packagephobia.now.sh/badge?p=cashify)](https://packagephobia.now.sh/result?p=cashify)
-![minified size](https://img.shields.io/bundlephobia/minzip/cashify)
+[![install size](https://packagephobia.now.sh/badge?p=cashify-es2017)](https://packagephobia.now.sh/result?p=cashify-es2017)
+![minified size](https://img.shields.io/bundlephobia/minzip/cashify-es2017)
 [![Mentioned in Awesome Node.js](https://awesome.re/mentioned-badge.svg)](https://github.com/sindresorhus/awesome-nodejs)
 
+- [Fork motivation](#fork-motivation)
 - [Motivation](#motivation)
 - [Highlights](#highlights)
 - [Install](#install)
@@ -39,6 +40,20 @@
 
 ---
 
+## Fork motivation
+
+The original author decided to make it an ES2020 module, which makes it impossible to use in most projects today, as most packages today are ES2017. Issues have been created to let the original author know of this, but he has not shown interest in changing this.
+
+Since I would like to use this package for a production system, I decided to fork it, and make it ES2017 again. Hence I will actively maintain this fork.
+
+The changes made in this fork are the absolute minimum, so if the original packages get updated, I will backport these.
+
+If you would like to contribute, then if possible make the pull request for the original repository. If this becomes unmaintained, then I will further update this fork.
+
+This fork will remain an ES2017 module.
+
+---
+
 ## Motivation
 
 This package was created, because the popular [money.js](http://openexchangerates.github.io/money.js/) library:
@@ -62,7 +77,7 @@ This package was created, because the popular [money.js](http://openexchangerate
 ## Install
 
 ```
-$ npm install cashify
+$ npm install cashify-es2017
 ```
 
 **Please note that starting with version `3.0.0` this package is ESM-only and thus requires Node.js v14 or higher.**
@@ -72,7 +87,7 @@ $ npm install cashify
 ### With constructor
 
 ```js
-import {Cashify} from 'cashify';
+import {Cashify} from 'cashify-es2017';
 
 const rates = {
 	GBP: 0.92,
@@ -92,7 +107,7 @@ console.log(result); //=> 9.2
 Using the `Cashify` constructor is not required. Instead, you can just use the `convert` function:
 
 ```js
-import {convert} from 'cashify';
+import {convert} from 'cashify-es2017';
 
 const rates = {
 	GBP: 0.92,
@@ -110,7 +125,7 @@ console.log(result); //=> 9.2
 Cashify supports parsing, so you can pass a `string` to the `amount` argument and the `from` and/or `to` currency will be automatically detected:
 
 ```js
-import {Cashify} from 'cashify';
+import {Cashify} from 'cashify-es2017';
 
 const rates = {
 	GBP: 0.92,
@@ -130,7 +145,7 @@ cashify.convert('10 EUR to GBP');
 Alternatively, if you just want to parse a `string` without conversion you can use the [`parse`](#parseexpression) function which returns an `object` with parsing results:
 
 ```js
-import {parse} from 'cashify';
+import {parse} from 'cashify-es2017';
 
 parse('10 EUR to GBP'); //=> {amount: 10, from: 'EUR', to: 'GBP'}
 ```
@@ -152,7 +167,7 @@ You can use `to`, `in` or `as` to separate the expression (case insensitive). Us
 [big.js](https://github.com/scurker/currency.js/) is a small JavaScript library for arbitrary-precision decimal arithmetic. You can use it with cashify to make sure you won't run into floating point issues:
 
 ```js
-import {Cashify} from 'cashify';
+import {Cashify} from 'cashify-es2017';
 import Big from 'big.js';
 
 const rates = {
@@ -178,7 +193,7 @@ console.log(result); //=> 8.235 (without big.js you would get something like 0.8
 [currency.js](https://github.com/scurker/currency.js/) is a small and lightweight library for working with currency values. It integrates well with cashify. In the following example we are using it to format the conversion result:
 
 ```js
-import {Cashify} from 'cashify';
+import {Cashify} from 'cashify-es2017';
 import currency from 'currency.js';
 
 const rates = {
@@ -283,7 +298,7 @@ With `Cashify` constructor:
 
 ```diff
 - import fx from 'money';
-+ import {Cashify} from 'cashify';
++ import {Cashify} from 'cashify-es2017';
 
 - fx.base = 'EUR';
 - fx.rates = {
@@ -308,7 +323,7 @@ With `convert` function:
 
 ```diff
 - import fx from 'money';
-+ import {convert} from 'cashify';
++ import {convert} from 'cashify-es2017';
 
 - fx.base = 'EUR';
 - fx.rates = {
@@ -335,7 +350,7 @@ Let's take a look at the following example:
 
 ```js
 import fx from 'money';
-import {Cashify} from 'cashify';
+import {Cashify} from 'cashify-es2017';
 
 const rates = {
 	GBP: 0.92,
